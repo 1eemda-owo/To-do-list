@@ -3,7 +3,7 @@ import { MdTurnedInNot, MdTurnedIn, MdClear } from "react-icons/md";
 import cn from "classnames";
 import "../style/TodoListItem.scss";
 
-const TodoListItem = ({ todo, onToggle }) => {
+const TodoListItem = ({ todo, onToggle, onRemove }) => {
   const { id, list, checked } = todo;
 
   return (
@@ -12,7 +12,7 @@ const TodoListItem = ({ todo, onToggle }) => {
         {checked ? <MdTurnedIn /> : <MdTurnedInNot />}
         <div className="text">{list}</div>
       </div>
-      <div className="remove">
+      <div className="remove" onClick={() => onRemove(id)}>
         <MdClear />
       </div>
     </div>
