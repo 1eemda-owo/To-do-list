@@ -7,17 +7,12 @@ const App = () => {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      list: "add your list",
-      checked: false,
-    },
-    {
-      id: 2,
-      list: "listslsslslsllslsl",
+      list: "Add my to do list",
       checked: true,
     },
   ]);
 
-  const nextId = useRef(4);
+  const nextId = useRef(2);
 
   const onInsert = useCallback(
     (list) => {
@@ -32,10 +27,21 @@ const App = () => {
     [todos]
   );
 
+  const onToggle = useCallback(
+    (id) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo
+        )
+      );
+    },
+    [todos]
+  );
+
   return (
     <TodoTemplate>
       <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onToggle={onToggle} />
     </TodoTemplate>
   );
 };
