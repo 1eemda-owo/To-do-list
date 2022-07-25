@@ -1,0 +1,49 @@
+.listitem{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+
+    .checkbox{
+        cursor: pointer;
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        svg {
+            font-size: 1.3rem;
+        }
+
+        .text{
+            margin-left: 1rem;
+            flex: 1;
+            font-size: 1.3rem;
+        }
+
+        &.checked {
+            svg {
+                color: rgb(19, 39, 255);
+            }
+            .text{
+                color: #ccc;
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    .remove{
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        color: #ec3636;
+        cursor: pointer;
+        margin-right: 0.8rem;
+
+        &:hover{
+            color: #000000;
+        }
+    }
+
+    & + & {
+        border-top: 1px solid #ededed;
+    }
+}
